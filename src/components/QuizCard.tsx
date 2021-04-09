@@ -20,6 +20,11 @@ export const QuizCard: React.FC<Props> = ({
 	setFlag,
 }) => {
 	const handleChange = (e: any) => {
+		// const formDom = document.getElementById(
+		// 	`formID_${index}`
+		// ) as HTMLFormElement;
+		// console.log(formDom.elements[3]);
+
 		const { correct_answers } = quiz;
 		setFlag(e.target.value);
 		let correct = "";
@@ -61,11 +66,13 @@ export const QuizCard: React.FC<Props> = ({
 							onChange={handleChange}
 							type="radio"
 							name={`question_${index}`}
-							id={`question_${index}_${value}`}
+							id={`question_${index}_${key}`}
 							value={key}
 							checked={key === flag[index]}
 						/>
-						<label htmlFor={`question_${index}_${value}`}>{value}</label>
+						<label htmlFor={`question_${index}_${key}`}>
+							<span className="break-words">{value}</span>
+						</label>
 					</div>
 				);
 			} else {
@@ -75,17 +82,20 @@ export const QuizCard: React.FC<Props> = ({
 	};
 
 	return (
+		// <form>
 		<div className=" bg-white  shadow-lg rounded-md px-6 py-4 space-y-1 ">
 			<h3 className="font-bold leading-snug mb-1">
 				<span>{index + 1}. </span>
 				{quiz.question}
 			</h3>
-			{renderAnswers()}
+			<form id={`formID_${index}`}>{renderAnswers()}</form>
+
 			{check[index] > 0 ? (
 				<div className="text-green-500">right answer</div>
 			) : check[index] < 0 ? (
 				<div className="text-red-500">wrong answer</div>
 			) : null}
 		</div>
+		// </form>
 	);
 };
