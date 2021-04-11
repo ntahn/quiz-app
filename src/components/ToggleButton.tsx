@@ -17,7 +17,7 @@ export const ToggleButton: React.FC<Props> = ({ toggleId, children }) => {
 				localStorage.theme = "dark";
 			}
 		});
-	}, []);
+	});
 
 	return (
 		<div className="absolute top-4 right-2">
