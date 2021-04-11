@@ -83,17 +83,19 @@ export const QuizCard: React.FC<Props> = ({
 
 	return (
 		// <form>
-		<div className=" bg-white  shadow-lg rounded-md px-6 py-4 space-y-1 ">
-			<h3 className="font-bold leading-snug mb-1">
+		<div className=" bg-white dark:bg-gray-900 dark:text-gray-200 shadow-lg rounded-md px-6 py-4 space-y-1 ">
+			<h3 className="font-bold dark:text-yellow-300 leading-snug mb-1">
 				<span>{index + 1}. </span>
 				{quiz.question}
 			</h3>
 			<form id={`formID_${index}`}>{renderAnswers()}</form>
 
 			{check[index] > 0 ? (
-				<div className="text-green-500">right answer</div>
+				<div className=" font-semibold text-green-600 dark:text-green-500">
+					right answer
+				</div>
 			) : check[index] < 0 ? (
-				<div className="text-red-500">wrong answer</div>
+				<div className=" font-semibold text-red-500">wrong answer</div>
 			) : null}
 		</div>
 		// </form>
