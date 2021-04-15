@@ -20,7 +20,7 @@ export const ToggleButton: React.FC<Props> = ({ toggleId, children }) => {
 	}, [toggleId]);
 
 	return (
-		<div className="absolute top-4 right-2">
+		<div className="absolute top-4 right-6">
 			<label htmlFor={toggleId} className="flex items-center cursor-pointer">
 				{/* toggle */}
 				<div className="relative">
